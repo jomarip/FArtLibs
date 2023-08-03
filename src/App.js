@@ -7,10 +7,10 @@ import banner from "./banner.png";
 const contractABI = [
   {
     inputs: [
-      { internalType: "string[]", name: "wordCategories", type: "string[]" },
+      { internalType: "string[]", name: "wordCategories", type: "string[]" }
     ],
     stateMutability: "nonpayable",
-    type: "constructor",
+    type: "constructor"
   },
   {
     anonymous: false,
@@ -19,17 +19,17 @@ const contractABI = [
         indexed: true,
         internalType: "address",
         name: "submitter",
-        type: "address",
+        type: "address"
       },
       {
         indexed: false,
         internalType: "string[]",
         name: "phrase",
-        type: "string[]",
-      },
+        type: "string[]"
+      }
     ],
     name: "PhraseSubmitted",
-    type: "event",
+    type: "event"
   },
   {
     anonymous: false,
@@ -39,112 +39,112 @@ const contractABI = [
         indexed: true,
         internalType: "address",
         name: "submitter",
-        type: "address",
-      },
+        type: "address"
+      }
     ],
     name: "UniqueWordAdded",
-    type: "event",
+    type: "event"
   },
   {
     inputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     name: "categories",
     outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
-    type: "function",
+    type: "function"
   },
   {
     inputs: [
       { internalType: "string", name: "", type: "string" },
-      { internalType: "uint256", name: "", type: "uint256" },
+      { internalType: "uint256", name: "", type: "uint256" }
     ],
     name: "categoryWords",
     outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
-    type: "function",
+    type: "function"
   },
   {
     inputs: [],
     name: "getPhraseByAddress",
     outputs: [{ internalType: "string[]", name: "", type: "string[]" }],
     stateMutability: "view",
-    type: "function",
+    type: "function"
   },
   {
     inputs: [{ internalType: "string", name: "word", type: "string" }],
     name: "getUniqueWordSubmitter",
     outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
-    type: "function",
+    type: "function"
   },
   {
     inputs: [{ internalType: "string", name: "category", type: "string" }],
     name: "getWordByAddressAndCategory",
     outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
-    type: "function",
+    type: "function"
   },
   {
     inputs: [{ internalType: "string", name: "category", type: "string" }],
     name: "getWordsByCategory",
     outputs: [{ internalType: "string[]", name: "", type: "string[]" }],
     stateMutability: "view",
-    type: "function",
+    type: "function"
   },
   {
     inputs: [{ internalType: "string", name: "", type: "string" }],
     name: "isWordSubmitted",
     outputs: [{ internalType: "bool", name: "", type: "bool" }],
     stateMutability: "view",
-    type: "function",
+    type: "function"
   },
   {
     inputs: [{ internalType: "string", name: "", type: "string" }],
     name: "isWordUnique",
     outputs: [{ internalType: "bool", name: "", type: "bool" }],
     stateMutability: "view",
-    type: "function",
+    type: "function"
   },
   {
     inputs: [
       { internalType: "address", name: "", type: "address" },
-      { internalType: "uint256", name: "", type: "uint256" },
+      { internalType: "uint256", name: "", type: "uint256" }
     ],
     name: "phrases",
     outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
-    type: "function",
+    type: "function"
   },
   {
     inputs: [{ internalType: "string[]", name: "phrase", type: "string[]" }],
     name: "submitPhrase",
     outputs: [],
     stateMutability: "nonpayable",
-    type: "function",
+    type: "function"
   },
   {
     inputs: [{ internalType: "string", name: "", type: "string" }],
     name: "uniqueWordSubmitters",
     outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
-    type: "function",
+    type: "function"
   },
   {
     inputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     name: "uniqueWords",
     outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
-    type: "function",
+    type: "function"
   },
   {
     inputs: [
       { internalType: "address", name: "", type: "address" },
-      { internalType: "string", name: "", type: "string" },
+      { internalType: "string", name: "", type: "string" }
     ],
     name: "words",
     outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
-    type: "function",
-  },
+    type: "function"
+  }
 ];
 const contractAddress = "0x930f316c6315B83CDBB05148695b307986781599";
 
@@ -159,7 +159,7 @@ const App = () => {
     "Verb ending in -ing",
     "Object",
     "Shape",
-    "2nd Color",
+    "2nd Color"
   ]);
   const [account, setAccount] = useState(null);
 
@@ -224,13 +224,25 @@ const App = () => {
     try {
       await window.ethereum.request({
         method: "wallet_addEthereumChain",
-        params: [avlNetwork[`${chainId}`]],
+        params: [avlNetwork[`${chainId}`]]
       });
       setNetwork(avlNetwork[`${chainId}`].chainName);
       setChainId(chainId);
     } catch (error) {
       setMsg(error);
     }
+  };
+
+  const placeholderTexts = {
+    Location: "e.g. back of a movie theater",
+    Color: "e.g. magenta",
+    Noun: "a person, place or thing",
+    "Name of a well known person on AVAX": "e.g. Harrowed Wrath",
+    Verb: "an action (e.g. pump)",
+    "Verb ending in -ing": "e.g. dumping",
+    Object: "e.g. hard drive",
+    Shape: "e.g. cloud shape, pear shape, etc.",
+    "2nd Color": "different than the 1st color"
   };
 
   // The avlNetwork object
@@ -242,9 +254,9 @@ const App = () => {
       nativeCurrency: {
         name: "MATIC",
         symbol: "MATIC",
-        decimals: 18,
+        decimals: 18
       },
-      blockExplorerUrls: ["https://polygonscan.com/"],
+      blockExplorerUrls: ["https://polygonscan.com/"]
     },
     43114: {
       chainId: `0x${Number(43114).toString(16)}`,
@@ -253,10 +265,10 @@ const App = () => {
       nativeCurrency: {
         name: "Avalanche",
         symbol: "AVAX",
-        decimals: 18,
+        decimals: 18
       },
-      blockExplorerUrls: ["https://snowtrace.io/"],
-    },
+      blockExplorerUrls: ["https://snowtrace.io/"]
+    }
   };
 
   // Then in your return statement for the component, you can use these states:
@@ -308,7 +320,7 @@ const App = () => {
             <Form.Label>{category}</Form.Label>
             <Form.Control
               type="text"
-              placeholder={`Enter a ${category}`}
+              placeholder={placeholderTexts[category]}
               onChange={(e) => {
                 let newPhrase = [...phrase];
                 newPhrase[index] = e.target.value;
