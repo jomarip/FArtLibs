@@ -292,27 +292,45 @@ const App = () => {
 
       <h2>How it works:</h2>
       <p>
-        In this unique art project, you're invited to contribute words that will
-        fill in the missing gaps to a short story. When the timeframe for word
-        submission ends, I will pick the words that I think will create an
-        interesting work of art and bring the piece to life primarily using AI,
-        sentence by sentence, creating a collection of pieces that illustrate
-        the different parts of the story. As a contributor, you will also be
-        given early access to acquiring the work before it is available to the
-        general public. Thank you for participating in this novel project and
-        I'm looking forward to seeing what we can create together!
+      In this unique community building art project, you're invited to contribute words that will fill in the missing gaps to create a short story.
+      <br />
+      <br />
+When the timeframe for word submission ends, I will pick the words that I think will create an interesting work of art and bring the piece to life primarily using AI, sentence by sentence, creating a collection of 1/1 art pieces that illustrate the story. 
+<br />
+<br />
+As a contributor, you have the opportunity to submit your words via blockchain technology
+<br />
+<br />
+By submitting your words for this project with a crypto wallet address, if your word submission is used for the story, your address will be part of the minting of the artwork and you will receive a royalty for your contribution.
+<br />
+<br />
+
+You will also be given early access to acquiring the NFT version of the artwork before it is available to the general public. 
+<br />
+<br />
+For static imagery, art prints will also be made available.
+<br />
+<br />
+
+Thank you for participating in this novel project and I'm looking forward to seeing what we can create together!
       </p>
 
       <h2>Guidelines</h2>
       <p>
         Please submit your words below. The only criteria for the words are the
         following:
+        <br />
+        <br />
         <ul>
           <li>They need to be a real world in the English language</li>
+          <br />
           <li>Profanity and R-rated words are allowed</li>
+          <br />
           <li>Submitting derogatory words will disqualify your submission</li>
         </ul>
       </p>
+      <br />
+      <br />
 
       <Form>
         {categories.map((category, index) => (
